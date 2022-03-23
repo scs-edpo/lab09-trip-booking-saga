@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest( // webEnvironment = WebEnvironment.NONE, 
   // start web environment to work around https://forum.camunda.org/t/error-executing-upon-starting-within-unit-tests/16376/10
-    classes = TripBookinApplication.class, //
+    classes = TripBookingApplication.class, //
     properties = { //
         "camunda.bpm.job-execution.enabled=false", //
         "camunda.bpm.auto-deployment-enabled=false", //

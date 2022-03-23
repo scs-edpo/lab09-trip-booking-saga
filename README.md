@@ -75,7 +75,7 @@ camunda.getRepositoryService().createDeployment()
 
 The engine will take care of state handling, compensation and could also handle timeouts and escalations.
 
-In real-life scenarios you might configure and run the Camunda engine differently, e.g. by using Spring or Spring Boot. In this example you can also use the [Spring Boot Application](src/main/java/io/flowing/trip/saga/camunda/springboot/Application.java) in order to fire the application up - and afterwords even connect Camundas visual tooling.
+In real-life scenarios you might configure and run the Camunda engine differently, e.g. by using Spring or Spring Boot. In this example you can also use the [Spring Boot Application](src/main/java/io/flowing/trip/saga/camunda/springboot/TripBookingApplication.java) in order to fire the application up - and afterwards even connect Camundas visual tooling.
 
 A visual representation is automatically created in the background by Camunda. (**You need to use Camunda in a version >= 7.8.0.**)
 
@@ -98,7 +98,7 @@ You need
 Required steps
 
 * Checkout or download this project
-* Run the [Application.java](src/main/java/io/flowing/trip/saga/camunda/springboot/Application.java) class as this is a Spring Boot application running everything at once, starting exactly one Saga that is always "crashing" in the flight booking
+* Run the [TripBookingApplication.java](src/main/java/io/flowing/trip/saga/camunda/springboot/TripBookingApplication.java) class as this is a Spring Boot application running everything at once, starting exactly one Saga that is always "crashing" in the flight booking
 * If you like you can access the Camunda database from the outside, e.g. using the ["Camunda Standalone Webapp"](https://camunda.org/download/) to inspect state. Use the follwing connection url: ```jdbc:h2:tcp://localhost:8092/mem:camunda;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE```. Note that you need [Camunda Enterprise](https://camunda.com/trial/) to see historical data.
 
 As an alternative:
