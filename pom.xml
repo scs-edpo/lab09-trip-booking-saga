@@ -16,7 +16,7 @@
 		<!-- Adjust if you want to use Enterprise Edition of Camunda:
 		<camunda.version>7.11.0-ee</camunda.version>
 		Make sure you also switch to the ee webapp dependency further below -->
-		<camunda.spring.boot.version>7.13.0</camunda.spring.boot.version>		
+		<camunda.spring.boot.version>3.4.1</camunda.spring.boot.version>
 	</properties>
 
 	<dependencyManagement>
