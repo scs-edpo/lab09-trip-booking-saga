@@ -32,6 +32,7 @@ public class SagaBuilder {
 
   public SagaBuilder start() {
     process = Bpmn.createExecutableProcess(name);
+    process.camundaHistoryTimeToLive(1);
     saga = process.startEvent("Start-" + name);
     return this;
   }

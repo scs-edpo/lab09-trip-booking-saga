@@ -7,14 +7,10 @@ import org.camunda.bpm.engine.variable.Variables;
 import org.camunda.bpm.spring.boot.starter.annotation.EnableProcessApplication;
 import org.h2.tools.Server;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EnableAutoConfiguration
 @EnableProcessApplication
-@ComponentScan
 public class TripBookingApplication {
 
   public static void main(String... args) throws Exception {

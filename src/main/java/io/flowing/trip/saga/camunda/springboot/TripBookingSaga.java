@@ -2,9 +2,10 @@ package io.flowing.trip.saga.camunda.springboot;
 
 import java.util.HashMap;
 
-import javax.annotation.PostConstruct;
-
+import jakarta.annotation.PostConstruct;
 import org.camunda.bpm.engine.ProcessEngine;
+import org.camunda.bpm.engine.RepositoryService;
+import org.camunda.bpm.engine.RuntimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,11 @@ import io.flowing.trip.saga.camunda.springboot.builder.SagaBuilder;
 public class TripBookingSaga {
 
   @Autowired
+  private RuntimeService runtimeService;
+
+  @Autowired
+  private RepositoryService repositoryService;
+
   private ProcessEngine camunda;
 
   @PostConstruct
@@ -35,7 +41,7 @@ public class TripBookingSaga {
         .end() //
         .triggerCompensationOnAnyError();
 
-    camunda.getRepositoryService().createDeployment() //
+    repositoryService.createDeployment() //
         .addModelInstance("trip.bpmn", saga.getModel()) //
         .deploy();
 
@@ -46,7 +52,7 @@ public class TripBookingSaga {
   public void bookTrip() {
     HashMap<String, Object> someVariables = new HashMap<>();
     // Could add some variables here - not used in simple demo
-    camunda.getRuntimeService().startProcessInstanceByKey("trip", someVariables);
+    runtimeService.startProcessInstanceByKey("trip", someVariables);
   }
 
 }

@@ -1,7 +1,5 @@
 package io.flowing.trip.saga.camunda.simple;
 
-import java.io.File;
-
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration;
 import org.camunda.bpm.engine.variable.Variables;
@@ -44,7 +42,7 @@ public class TripBookingSaga {
   public static BpmnModelInstance createSaga() {
     // define saga as BPMN process
     ProcessBuilder flow = Bpmn.createExecutableProcess("trip");
-    
+
     // - flow of activities and compensating actions
     flow.startEvent()
         .serviceTask("car").name("Reserve car").camundaClass(ReserveCarAdapter.class)
@@ -62,8 +60,8 @@ public class TripBookingSaga {
     flow.eventSubProcess()
         .startEvent().error("java.lang.Throwable")
         .intermediateThrowEvent().compensateEventDefinition().compensateEventDefinitionDone()
-        .endEvent();     
-    
+        .endEvent();
+
     // ready
     BpmnModelInstance saga = flow.done();
     // optional: Write to file to be able to open it in Camunda Modeler
