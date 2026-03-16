@@ -27,6 +27,7 @@ public class TripBookingSaga {
         new StandaloneInMemProcessEngineConfiguration()
           .buildProcessEngine();
     
+    // define Saga as BPMN process
     BpmnModelInstance saga = createSaga();
 
     // finish Saga and deploy it to Camunda
