@@ -8,7 +8,7 @@ public class BookHotelAdapter implements JavaDelegate {
   @Override
   public void execute(DelegateExecution execution) throws Exception {
 
-    System.out.println("book hotel car");
+    System.out.println("book hotel");
 
   }
 
